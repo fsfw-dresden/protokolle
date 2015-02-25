@@ -106,7 +106,7 @@ Solikasse
 ---------
 
 -   es gibt einen Übergangskasse?
--   der Zeit verstreut (Johannes Webserver, Jonas Mailinglisten)
+-   derzeit verstreut (Johannes Webserver, Jonas Mailinglisten)
 -   scheinbar zur Zeit kein Bedarf, Kosten sind wohl sehr überschaubar
 
 
