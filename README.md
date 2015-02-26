@@ -13,3 +13,8 @@ pandoc -t markdown_strict protokoll-2015-02-11.html > protokoll-2015-02-11.md
 gpg -b -a protokoll-2015-02-11.md
 rm protokoll-2015-02-11.html
 ```
+
+Die Integrität der Daten wird über signierte git-tags
+sichergestellt. Die Gültigkeit der Protokolle kann also mit `git -v
+<tagname>` überprüft werden. Die Tags sollten die Form `yyyy-mm-dd-v0n`
+haben (und vom Designierten Protokollanten signiert sein).
