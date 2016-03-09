@@ -1,6 +1,9 @@
 Protokolle der
 [Initiative für Freie Software und Freies Wissen Dresden](http://fsfw-dresden.de/)
 
+**Hinweis**: Diese Readme ist zur Zeit nicht aktuell
+
+
 Technisches
 ===========
 
@@ -17,4 +20,4 @@ rm protokoll-2015-02-11.html
 Die Integrität der Daten wird über signierte git-tags
 sichergestellt. Die Gültigkeit der Protokolle kann also mit `git -v
 <tagname>` überprüft werden. Die Tags sollten die Form `yyyy-mm-dd-v0n`
-haben (und vom Designierten Protokollanten signiert sein).
+haben (und vom designierten Protokollanten signiert sein).
