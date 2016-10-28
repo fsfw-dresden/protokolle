@@ -3,7 +3,7 @@
 # Alle Markdowndateien der Protokolle laden, durch einen Separator getrennt
 # in eine große Markdowndatei zusammenfügen und Inhaltsverzeichnis erzeugen
 
-protocols=$(cd markdown; ls -1 protokoll-fsfw-dd-*.md | sort -r)
+protocols=$(cd protokolle; ls -1 protokoll-fsfw-dd-*.md | sort -r)
 content=$(tempfile)
 toc=$(tempfile)
 separator='<hr />'                # ugly
@@ -20,7 +20,7 @@ for p in $protocols; do
     echo $separator >> $content
     echo $anchor >> $content
     echo $separator >> $content
-    cat markdown/$p >> $content
+    cat protokolle/$p >> $content
 done
 
 cat $toc $content > protokolle.md
