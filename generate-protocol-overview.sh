@@ -1,27 +1,11 @@
 #!/bin/bash
 
-# Fehlende Protokolle herunterladen
-
-(
-    cd markdown
-    for p in $(cat ../liste-der-protokolle)
-    do
-        if ! [ -f "protokoll-$p.md" ]; then
-            echo "Downloading $p"
-            curl 'https://pad.fsfw-dresden.de/p/$p/export/html' > protokoll-$p.html
-            pandoc -t markdown_strict protokoll-$p.html > protokoll-$p.md
-            gpg --detach-sign --armor protokoll-$p.md
-            rm protokoll-$p.html
-        fi
-    done
-)
-
 # Alle Markdowndateien der Protokolle laden, durch einen Separator getrennt
 # in eine große Markdowndatei zusammenfügen und Inhaltsverzeichnis erzeugen
 
 protocols=$(cd markdown; ls -1 protokoll-fsfw-dd-*.md | sort -r)
-content=content.md
-toc=toc.md
+content=$(tempfile)
+toc=$(tempfile)
 separator='<hr />'                # ugly
 
 echo -e "## Inhaltsverzeichnis: \n" > $toc
@@ -39,7 +23,5 @@ for p in $protocols; do
     cat markdown/$p >> $content
 done
 
-# Generiere finales HTML
-
-cat $toc $content | pandoc -s -f markdown_strict -t html > protokolle.html
-
+cat $toc $content > protokolle.md
+rm -f $content $toc
