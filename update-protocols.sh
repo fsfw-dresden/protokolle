@@ -1,51 +1,10 @@
 #!/bin/bash
 
-read -r -d '' protocol_list <<'LIST'
-fsfw-dd-20160303
-fsfw-dd-20160218
-fsfw-dd-20160204
-fsfw-dd-20160121
-fsfw-dd-20160107
-fsfw-dd-20151217
-fsfw-dd-20151203
-fsfw-dd-20151119
-fsfw-dd-20151105
-fsfw-dd-20151022
-fsfw-dd-20151008
-fsfw-dd-20150924
-fsfw-dd-20150910
-fsfw-dd-20150827
-fsfw-dd-20150813
-fsfw-dd-20150729
-fsfw-dd-20150715
-fsfw-dd-20150701
-fsfw-dd-20150617
-fsfw-dd-20150603
-fsfw-dd-20150520
-plenum-20150506
-fsfw-dd-20150422
-fsfw-dd-20150408
-fsfw-dd-20150401
-fsfw-dd-20150325
-fsfw-dd-20150306-plenum
-fsfw-dd-20150306-corporatedesign
-fsfw-dd-20150306-infrastruktur
-fsfw-dd-20150306-textverarbeitung
-fsfw-dd-20150306-Mitgliedergewinnung
-fsfw-dd-20150306-CryptoChallange
-fsfw-dd-20150311
-fsfw-dd-20150225
-fsfw-dd-20150211
-fsfw-dd-20150128
-fsfw-dd-20150114
-gc2rfrunRB
-LIST
-
 # Fehlende Protokolle herunterladen
 
 (
     cd markdown
-    for p in $protocol_list
+    for p in $(cat ../liste-der-protokolle)
     do
         if ! [ -f "protokoll-$p.md" ]; then
             echo "Downloading $p"
