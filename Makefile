@@ -1,4 +1,3 @@
-SHELL = /bin/bash
 PROTOKOLLE = $(shell cat liste-der-protokolle | grep '^fsfw-dd' | sed -e 's/^\(.*\)$$/markdown\/protokoll-\1.md/')
 
 protokoll-%.html:
