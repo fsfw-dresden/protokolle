@@ -1,7 +1,7 @@
 PROTOKOLLE = $(shell cat liste-der-protokolle | grep '^fsfw-dd' | sed -e 's/^\(.*\)$$/protokolle\/protokoll-\1.md/')
 
 protokoll-%.html:
-	curl 'https://pad.fsfw-dresden.de/p/$*/export/html' > $@
+	w3m -dump_source 'https://pad.fsfw-dresden.de/p/$(*F)/export/html' | gunzip > $@
 
 %.md: %.html
 	pandoc -t markdown_strict $< > $@
