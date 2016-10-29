@@ -18,6 +18,8 @@ protokolle.html: protokolle.md
 protokolle.md: $(PROTOKOLLE)
 	./generate-protocol-overview.sh
 
+overview: protokolle.html
+
 test: $(PROTOKOLLE) $(SIGNATUREN)
 	for file in protokolle/protokoll-*.md; do \
 	  gpg --quiet --verify $${file}.asc $${file}; \
