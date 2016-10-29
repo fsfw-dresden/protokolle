@@ -1,4 +1,5 @@
 PROTOKOLLE = $(shell cat liste-der-protokolle | grep '^fsfw-dd' | sed -e 's/^\(.*\)$$/protokolle\/protokoll-\1.md/')
+SIGNATUREN = $(foreach p,$(PROTOKOLLE),$(p).asc)
 
 protokoll-%.html:
 	w3m -dump_source 'https://pad.fsfw-dresden.de/p/$(*F)/export/html' | gunzip > $@
@@ -9,7 +10,7 @@ protokoll-%.html:
 %.md.asc: %.md
 	gpg --detach-sign --armor $<
 
-update-all: $(PROTOKOLLE) $(foreach p,$(PROTOKOLLE),$(p).asc)
+update-all: $(PROTOKOLLE) $(SIGNATUREN)
 
 protokolle.html: protokolle.md
 	pandoc -s -f markdown_strict -t html protokolle.md > protokolle.html
