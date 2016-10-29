@@ -14,6 +14,6 @@ update-all: $(PROTOKOLLE) $(foreach p,$(PROTOKOLLE),$(p).asc)
 protokolle.html: protokolle.md
 	pandoc -s -f markdown_strict -t html protokolle.md > protokolle.html
 
-protokolle.md:
+protokolle.md: $(PROTOKOLLE)
 	./generate-protocol-overview.sh
 
