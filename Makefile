@@ -9,7 +9,7 @@ protokoll-%.html:
 %.md.asc: %.md
 	gpg --detach-sign --armor $<
 
-update-all: $(PROTOKOLLE) $(foreach p,$(PROTOKOLLE), $(p).asc)
+update-all: $(PROTOKOLLE) $(foreach p,$(PROTOKOLLE),$(p).asc)
 
 protokolle.html: protokolle.md
 	pandoc -s -f markdown_strict -t html protokolle.md > protokolle.html
