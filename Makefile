@@ -15,7 +15,7 @@ update-all: $(PROTOKOLLE) $(SIGNATUREN)
 protokolle.html: protokolle.md
 	pandoc -s -f markdown_strict -t html protokolle.md > protokolle.html
 
-protokolle.md: $(PROTOKOLLE)
+protokolle.md: $(filter protokolle/protokoll-fsfw-dd-%.md,$(PROTOKOLLE))
 	./generate-protocol-overview.sh
 
 overview: protokolle.html
