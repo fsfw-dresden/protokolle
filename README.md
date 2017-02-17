@@ -11,7 +11,8 @@ make update-all
 Die Protokolle werden dann im Verzeichnis `protokolle` abgelegt (als HTML und
 Markdown).  Zusätzlich wird eine Signatur im gleichen Verzeichnis abgelegt.  Es
 werden nur die Protokolle heruntergeladen, die in der Datei
-`liste-der-protokolle` enthalten sind.
+`liste-der-protokolle` enthalten sind. Um die Datums-Strings in dieser Datei
+nicht manuell eintragen zu müssen gibt es das Python-Skript `dates.py`.
 
 Erstellung einer Übersicht aller Protokolle
 ===========================================
