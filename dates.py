@@ -7,7 +7,7 @@ This script serves for creating a list of dates in with some fixed interval.
 
 Currently there is no command line interface. Just edit the source
 
-Example (interval=14): 
+Example output (interval=14): 
 
 2017-01-05
 2017-01-19
@@ -19,6 +19,18 @@ Example (interval=14):
 """
 
 import datetime as dt
+import sys
+
+wrn_msg = """
+Warning: Selecting the result of this script via mouse for copying
+via clipboard you may accidentally select a lot of unwanted space
+charcters at the line endings. Better use
+
+ python3 dates.py >> result.txt
+
+and copy from that file.
+"""
+
 
 #start = dt.date(2017, 1, 5)
 
@@ -49,3 +61,6 @@ if reverse_flag:
     results.reverse()
 
 print("\n".join(results))
+
+
+print(wrn_msg, file=sys.stderr)
