@@ -24,7 +24,7 @@ import sys
 wrn_msg = """
 Warning: Selecting the result of this script via mouse for copying
 via clipboard you may accidentally select a lot of unwanted space
-charcters at the line endings. Better use
+characters at the line endings. Better use
 
  python3 dates.py >> result.txt
 
