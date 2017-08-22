@@ -34,7 +34,7 @@ and copy from that file.
 
 #start = dt.date(2017, 1, 5)
 
-start = dt.date(2016, 3, 17)
+start = dt.date(2017, 1, 5)
 end = dt.date.today()
 
 interval = dt.timedelta(14)
